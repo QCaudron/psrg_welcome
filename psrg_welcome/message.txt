@@ -1,14 +1,14 @@
-Hello, {name}, {call} ! Welcome to amateur radio and congratulations on obtaining your {class_} license.
+Hello, {name}, {call} ! Welcome to amateur radio and congratulations on recently obtaining your {class_} license.
 
-My name is Quentin, K7DRQ. I'm the Secretary with the Puget Sound Repeater Group, one of the most active VHF repeaters in the country.
+My name is Quentin, K7DRQ. I'm the Secretary with the Puget Sound Repeater Group, one of the most active VHF repeaters on the west coast.
 
 We're a friendly, welcoming bunch, and we'd love to hear from you. We host nets every day of the year, at 9am, noon, and 9pm on our 2m repeater.
 
 You can find us at :
-- 2m FM : receive on 146.960 MHz, with a negative 0.6 MHz offset, and a tone of 103.5 Hz
-- 6m FM : receive on 52.87 MHz, with a negative 1.7 MHz offset, and a tone of 103.5 Hz
-- DMR : receive on 440.775 MHz, with a positive 5.0 MHz offset, and a color code of 2
-- Echolink for the 2m repeater : node number 447770, WW7PSR-L
+- 2m FM : on 146.960 MHz, with a negative 0.6 MHz offset, and a tone of 103.5 Hz
+- 6m FM : on 52.87 MHz, with a negative 1.7 MHz offset, and a tone of 103.5 Hz
+- DMR : on 440.775 MHz, with a positive 5.0 MHz offset, and a color code of 2
+- Echolink for the 2m repeater : node number 447770 (WW7PSR-L)
 - Allstar for the 2m repeater : node number 2462
 
 The 2m repeater in particular has excellent coverage in the Seattle area. If you need any help setting up a radio to get onto the repeater, don't hesitate to reach out.

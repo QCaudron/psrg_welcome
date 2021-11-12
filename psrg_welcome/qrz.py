@@ -1,3 +1,4 @@
+import logging
 import os
 from typing import Optional
 
@@ -107,8 +108,11 @@ def pull_missing_emails(
 
     driver = get_authenticated_driver(chromedriver_fname)
 
-    for callsign, email in tqdm(new_hams["Email"].to_dict().items()):
+    for callsign, email in new_hams["Email"].to_dict().items():
         if email is None:
-            new_hams.loc[callsign] = find_email_from_callsign(callsign, driver=driver)
+            logging.info(f"-- Looking up {callsign}...")
+            new_hams.loc[callsign, "Email"] = find_email_from_callsign(
+                callsign, driver=driver
+            )
 
     return new_hams
