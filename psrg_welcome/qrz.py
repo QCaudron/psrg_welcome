@@ -11,26 +11,41 @@ from tqdm.notebook import tqdm
 from time import sleep
 
 
-def get_authenticated_driver(chromedriver_fname):
+def get_authenticated_driver(
+    chromedriver_fname: str,
+) -> webdriver.chrome.webdriver.WebDriver:
+    """
+    Create a webdriver that's authenticated on QRZ.
 
+    Parameters
+    ----------
+    chromedriver_fname : str
+        The location of the Chromedriver executable/
+
+    Returns
+    -------
+    webdriver.chrome.webdriver.WebDriver
+        The webdriver, ready to pull info from QRZ.
+    """
+
+    # Grab environment vars
     username = os.environ.get("QRZ_USERNAME", "K7DRQ")
     password = os.environ.get("QRZ_PASSWORD")
     if password is None:
         raise ValueError("No QRZ_PASSWORD environment variable set.")
 
+    # Create a headless Chrome webdriver
     service = Service(chromedriver_fname)
-
     options = webdriver.ChromeOptions()
     options.headless = True
     driver = webdriver.Chrome(options=options, service=service)
 
+    # Authenticate
     driver.get("https://www.qrz.com/login")
     sleep(2)
-
     driver.find_element(by="id", value="username").send_keys(username)
     driver.find_element(by="id", value="username").send_keys(Keys.RETURN)
     sleep(2)
-
     driver.find_element(by="id", value="password").send_keys(password)
     driver.find_element(by="id", value="password").send_keys(Keys.RETURN)
     sleep(2)

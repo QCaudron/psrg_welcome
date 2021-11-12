@@ -53,16 +53,6 @@ def fake_data() -> pd.DataFrame:
         }
     )
 
-    df = pd.DataFrame(
-        {
-            "Callsign": ["K7DRQ"],
-            "Name": ["Quentin"],
-            "Class": ["Technician"],
-            "Email": ["k7drq@psrg.org"],
-            "Zip": ["12345"],
-        }
-    )
-
     return df.set_index("Callsign", drop=True)
 
 
