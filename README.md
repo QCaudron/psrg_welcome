@@ -20,17 +20,20 @@ free tier, which limits us to 100 emails per month.
 
 ## Getting started
 
-#### Installing dependencies
+### Installing dependencies
 
 First, ensure you have the Python dependencies installed : 
 ```
 pip install -r requirements.txt
 ```
 
-Then, you need the 
+Then, you need the [Chromedriver](https://chromedriver.chromium.org/downloads) that corresponds 
+with your version of Google Chrome. This application uses headless Selenium to scrape QRZ for
+emails, so you need to supply this downloadable. Either put it in the root directory, or point
+to it using the `--chromedriver_fname` command line argument.
 
 
-#### Environment variables 
+### Environment variables 
 
 Then, set some environment variables :
 
@@ -39,7 +42,7 @@ Then, set some environment variables :
 - `SENDGRID_API_KEY` is the API key with permissions to send emails with Sendgrid.
 
 
-#### Run the script
+### Run the script
 
 Run the script, telling it where the new ham CSV is :
 
@@ -47,3 +50,10 @@ Run the script, telling it where the new ham CSV is :
 python email_new_hams.py --csv_fname path/to/new_ham_stuff.csv
 ```
 
+## Options
+
+The `email_new_hams.py` script has a few options; see them all with `python email_new_hams.py --help`.
+
+- `--csv_fname <FILENAME>` : the location of the CSV containing new ham information, as sent by ARRL.
+- `--chromedriver_fname <FILENAME>` : the location of the Chromedriver executable.
+- `--test` : run the script on some fake data, rather than on an actual CSV of new ham information. 
