@@ -1,0 +1,14 @@
+Hello, {name}, {call} ! Welcome to amateur radio and congratulations on obtaining your {class_} license.
+
+My name is Quentin, K7DRQ. I'm the Secretary with the Puget Sound Repeater Group, one of the most active VHF repeaters in the country.
+
+We're a friendly, welcoming bunch, and we'd love to hear from you. We host nets every day of the year, at 9am, noon, and 9pm.
+
+You can find us at a frequency of 146.960 MHz, with a negative 0.6 MHz offset, and a tone of 103.5 Hz. The repeater has excellent coverage in the Seattle area. If you need any help setting up a radio to get onto the repeater, don't hesitate to reach out.
+
+We also have a 6m repeater, on 52.87 MHz, with a negative 1.7 MHz offset, and a tone of 103.5 Hz.
+
+You can find more info about us at http://www.psrg.org. I hope to hear you soon !
+
+73,
+Quentin K7DRQ
