@@ -1,8 +1,9 @@
 import os
 from typing import Optional
 
+import pandas as pd
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException, JavascriptException
+from selenium.common.exceptions import JavascriptException
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
 
@@ -64,3 +65,34 @@ def find_email_from_callsign(
         return email.lower()
     except JavascriptException:
         return None
+
+
+def pull_missing_emails(
+    new_hams: pd.DataFrame, chromedriver_fname: str
+) -> pd.DataFrame:
+    """
+    Attempt to pull missing email addresses from QRZ.
+
+    Parameters
+    ----------
+    new_hams : pd.DataFrame
+        A dataframe containing new ham callsigns and email addresses.
+    chromedriver_fname : str
+        The location of the Chromedriver matching your Chrome major version.
+
+    Returns
+    -------
+    pd.DataFrame
+        The same dataframe, hopefully with newer Nones and more email addresses.
+    """
+
+    # If there are no new emails to find, carry on
+    if new_hams["Email"].isna().sum() == 0:
+        return new_hams
+
+    driver = get_authenticated_driver(chromedriver_fname)
+    for callsign, email in tqdm(new_hams[["Callsign", "Email"]].itertuples()):
+        if email is None:
+            new_hams.loc[callsign] = find_email_from_callsign(callsign, driver=driver)
+
+    return new_hams
