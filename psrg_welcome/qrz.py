@@ -91,7 +91,8 @@ def pull_missing_emails(
         return new_hams
 
     driver = get_authenticated_driver(chromedriver_fname)
-    for callsign, email in tqdm(new_hams[["Callsign", "Email"]].itertuples()):
+
+    for callsign, email in tqdm(new_hams["Email"].to_dict().items()):
         if email is None:
             new_hams.loc[callsign] = find_email_from_callsign(callsign, driver=driver)
 
